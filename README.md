@@ -38,7 +38,7 @@ An example for a segmentation for the SV prostate region after training:
 
 <img src="https://github.com//fabibombo/vnet_segmentation_docker/blob/main/pictures/example1.png?raw=true" alt="Segmentation Preview" width="400">
 
-And following is an example of the obtained loss, dice and recall for the combined CZ and TZ region after 200 epochs:
+And following is an example of the obtained loss, dice and recall for the combined CZ and TZ region after a training episode:
 
 <img src="https://github.com//fabibombo/vnet_segmentation_docker/blob/main/pictures/results1.png?raw=true" alt="Results Preview" width="500">
 
