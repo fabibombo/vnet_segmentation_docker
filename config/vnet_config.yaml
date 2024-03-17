@@ -1,0 +1,19 @@
+data:    
+    train_dir: /data/train/
+    test_dir: /data/test/
+    data_aug: True
+    center_crop_size: 320
+    aug_center_crop_size: 360
+vnet:
+    device: cuda
+    model_name: vnet_script_v1
+    batch_size: 4
+    learning_rate: 0.0001
+    lr_schedule: True
+    num_epochs: 120
+    frame_depth: 16
+    input_channels: 1
+    split_channels: 16
+    elu: True
+    se: True
+    nll: False
