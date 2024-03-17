@@ -96,10 +96,10 @@ class FocalTverskyLoss(nn.Module):
 
     def forward(self, preds, targets, smooth=1, alpha=ALPHA, beta=BETA, gamma=GAMMA):
         
-        #comment out if your model contains a sigmoid or equivalent activation layer
+        #Comment out if the model contains a sigmoid or equivalent activation layer
         #preds = F.sigmoid(inputs)       
         
-        #flatten label and prediction tensors
+        #Flatten label and prediction tensors
         inputs = preds.view(-1)
         targets = targets.view(-1)
         
@@ -123,10 +123,10 @@ class BFTLoss(nn.Module):
 
     def forward(self, preds, targets, smooth=1, alpha=ALPHA, beta=BETA, gamma=GAMMA):
         
-        #comment out if your model contains a sigmoid or equivalent activation layer
+        #Comment out if the model contains a sigmoid or equivalent activation layer
         #preds = F.sigmoid(inputs)       
         
-        #flatten label and prediction tensors
+        #Flatten label and prediction tensors
         inputs = preds.view(-1)
         targets = targets.view(-1)
         
@@ -156,7 +156,7 @@ class ComboLoss(nn.Module):
 
     def forward(self, preds, targets, smooth=1, alpha=ALPHA, beta=BETA, eps=1e-9):
         
-        #flatten label and prediction tensors
+        #Flatten label and prediction tensors
         inputs = preds.view(-1)
         targets = targets.view(-1)
         
