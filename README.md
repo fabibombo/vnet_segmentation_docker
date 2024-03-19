@@ -8,9 +8,7 @@ This application builds and trains a Vnet pytorch model for image segmentantion,
 
 Different from the original paper and repo the number of input and split channels is variable and can be defined in the model config file. This will directly modify the size and complexity of the model so choose with care. The standard value of input and split channels for single MRI segmentation would be 1 and 16 respectively.
 
-Several losses can be used for training. By default the model can be trained using the NLL loss (T) or the BCE + DICE + JACCARD loss (F) defined in the nll config parameter, other losses may be found or configured in the train and metrics scripts.
-
-This model and training script is a work in progress, more features will be added.
+Several losses can be used for training. By default the model can be trained using the NLL loss (T) or the BCE + DICE + JACCARD loss (F) defined in the nll config parameter, other losses can alse be configured in the train and metrics scripts.
 
 ### Requirements ###
 
@@ -28,9 +26,9 @@ Each image folder should contain numpy files indexed by an integer and the mask 
 
 The numpy arrays must use the shape (Height, Width, Depth). The images can have variable depth and the dataset classes extract overlapping frame collections of a shared fixed depth defined by the frame depth config parameter.
 
-For the images, Z-Normalization will be performed on the fly for the intensities, for now other preprocessing is not performed and it is left to the user. For the binary masks there is preprocessing available to attempt to fix abnormalities not enabled by default.
+By default, intensity Z-Normalization is performed, and other preprocessing is not done and it is left for the user. For the binary masks there is preprocessing available to attempt to fix abnormalities not enabled by default.
 
-This model was originally thought for prostate images so a center cropping is applied during the dataset transformations, change them if needed.
+This model was originally thought for prostate MRIs so a center cropping is applied in the dataset transformations, change them if needed.
 
 ### Preeliminary results and segmentation examples
 
@@ -62,7 +60,7 @@ The docker image can be built with:
 
 Example command to run the docker image interactively:
 
-```docker run -it --rm -p $OUT_PORT:8888 --user=1520 --gpus '"device=$DEVICE_ID"' -v "$DATA_PATH":/data/ -v "$CODE_PATH":/vnet/ vnet-pytorch-docker```
+```docker run -it --rm --user=$USER_ID --gpus '"device=$DEVICE_ID"' -v "$DATA_PATH":/data/ -v "$CODE_PATH":/vnet/ vnet-pytorch-docker```
 
 ### Train the model ###
 
@@ -72,7 +70,7 @@ When running or already inside the container one can train the model by running 
 
 To run the command detached from the terminal run:
 
-```docker run -d --rm -p $OUT_PORT:8888 --user=1520 --gpus '"device=$DEVICE_ID"' -v "$DATA_PATH":/data/ -v "$CODE_PATH":/vnet/ vnet-pytorch-docker bash -c "python train_vnet.py --config /vnet/config/vnet_config.yaml"```
+```docker run -d --rm --user=$USER_ID --gpus '"device=$DEVICE_ID"' -v "$DATA_PATH":/data/ -v "$CODE_PATH":/vnet/ vnet-pytorch-docker bash -c "python train_vnet.py --config /vnet/config/vnet_config.yaml"```
 
 
 By: David Vallmanya Poch
