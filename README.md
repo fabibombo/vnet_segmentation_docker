@@ -52,7 +52,7 @@ And following is an example of the obtained loss, dice and recall for the combin
 
 ![Results Preview](https://github.com//fabibombo/vnet_segmentation_docker/blob/main/pictures/results3.png?raw=true) -->
 
-Example of preeliminary results, further work such as by filtering the Fat Supression, Endorrectal Coil and Whole Pelvis View images are necessary to refine the final results.
+Example of preeliminary results, further work such as by filtering the Fat Supression, Endorrectal Coil and Whole Pelvis View images is necessary to refine the final results.
 
 ### Commands ###
 
